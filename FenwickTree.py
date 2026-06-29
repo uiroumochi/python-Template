@@ -1,8 +1,7 @@
 n = int(input())
-a = list(map(int,input().split()))
-
 #変えない
 BIT = [0]*(n+1)
+
 
 #一点加算
 def OneUpdate(index,value): # ← 0_indexed
@@ -11,9 +10,6 @@ def OneUpdate(index,value): # ← 0_indexed
     BIT[index] += value
     index += index&(-index)
 
-#構成
-for i in range(n):
-  OneUpdate(i,a[i])
 
 #前から{0<=x<=r}の取得
 def GetPrefix(r): # ← 0_indexed
@@ -24,6 +20,14 @@ def GetPrefix(r): # ← 0_indexed
     r -= r&(-r)
   return ans
 
+
 #区間取得{l<=x<r}
 def GetSection(l,r):
   return GetPrefix(r-1)-GetPrefix(l-1)
+
+
+a = list(map(int,input().split()))
+#構成
+for i in range(n):
+  OneUpdate(i,a[i])
+
