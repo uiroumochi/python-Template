@@ -1,4 +1,5 @@
-n = int(input())
+#n = int(input())
+#n,q = map(int,input().split())
 #変えない
 BIT = [0]*(n+1)
 
