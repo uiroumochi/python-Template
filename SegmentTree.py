@@ -1,5 +1,5 @@
-n = int(input())
-a = list(map(int,input().split()))
+#n = int(input())
+#n,q = map(int,input().split())
 
 #単位元
 #INF = 0                                # ←ここ変える！       
@@ -14,18 +14,6 @@ while N < n:
   N<<=1
 segtree = [INF]*(2*N)
 
-#取り込み
-for i in range(n):
-  segtree[N+i] = a[i]
-
-#構成
-for i in range(N-1,0,-1):
-  left = i*2
-  right = i*2+1
-  segtree[i] = syori(segtree[left],segtree[right])
-
-
-  
 #一点更新
 def OneUpdate(index,value): # ← 0_indexed
   index = index + N         # ← 1_indexed
@@ -54,3 +42,17 @@ def GetSection(l,r):
     l>>=1
     r>>=1
   return syori(ansL,ansR)
+
+
+a = list(map(int,input().split()))
+
+
+#取り込み
+for i in range(n):
+  segtree[N+i] = a[i]
+
+#構成
+for i in range(N-1,0,-1):
+  left = i*2
+  right = i*2+1
+  segtree[i] = syori(segtree[left],segtree[right])
