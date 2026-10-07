@@ -32,7 +32,7 @@ class bikkurimaker:
 MOD = 10**9 + 7
 bikkuri = bikkurimaker(MOD)
 x! = bikkuri.get(x)
-nCr = bikkuri.conbi(n,r)
+nCr = bikkuri.combi(n,r)
 """
 #エラトステネスの篩
 def sieve_prime_factorization(n):
